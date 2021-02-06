@@ -6,21 +6,21 @@ This is a simple springboot application, which calls salesforce api to get data 
 2. maven
 
 ###### Build
-   Build jar file using maven cmd.
+   Build jar file using maven cmd <br/>
    ex, mvn clean build
    
 ###### Run
-   run jar using java cmd.
-   cmd> java -jar salesforce-app-0.0.1-SNAPSHOT.jar 
+   run jar using java cmd.  
+   cmd> java -jar salesforce-app-0.0.1-SNAPSHOT.jar  
    
-   In order to function the app please provide below parameters as arguments:
-    - salesforce.host-name={{https://<instance>.salesforce.com}} 
-    - salesforce.password={{password}} 
-    - salesforce.username={{salesforce-username}} 
-    - salesforce.security-token={{security-token}} 
-    - salesforce.client-id={{consumer-id}}  
-    - salesforce.client-secret={{consumer-secret}}
-    
+   In order to function the app please provide below parameters as arguments: <br/>
+    - salesforce.host-name={{https://<instance>.salesforce.com}} <br/>
+    - salesforce.password={{password}} <br/>
+    - salesforce.username={{salesforce-username}} <br/>
+    - salesforce.security-token={{security-token}} <br/>  
+    - salesforce.client-id={{consumer-id}} <br/>
+    - salesforce.client-secret={{consumer-secret}} <br/>
+   <br/>
    java -Dsalesforce.host-name={host} -Dsalesforce.password={pwd} -Dsalesforce.username={username} -Dsalesforce.security-token={security-token} -Dsalesforce.client-id={consumer-id}  -Dsalesforce.client-secret={consumer-secret} -jar target\salesforce-app-0.0.1-SNAPSHOT.jar
 
 ###### End points
