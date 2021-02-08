@@ -33,3 +33,4 @@ This is a simple springboot application, which calls salesforce api to get data 
 	GET: http://localhost:8080/sobject
 	GET: http://localhost:8080/sobject/{sobject-name}
 	GET: http://localhost:8080/sobject/{sobject-name}/describe
+	GET: http://localhost:8080/query?q={query}
