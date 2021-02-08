@@ -15,6 +15,9 @@ public class BearerTokenService {
 
 	@Autowired
 	private SalesforceConfig salesforceConfig;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	
 	public String getBarerToken() throws RuntimeException {
@@ -22,7 +25,6 @@ public class BearerTokenService {
 		buf.append(salesforceConfig.getHostName()+salesforceConfig.getTokenServiceUrl());
 		System.out.println("Url :" +buf.toString());
 		MultiValueMap<String, String> map = getRequestBodyForBarerToken();
-		RestTemplate restTemplate = new RestTemplate();
 		Map<String, String> resp = restTemplate.postForObject(buf.toString(), 
 				  map, Map.class);
 		return resp.get("access_token");

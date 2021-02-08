@@ -21,9 +21,11 @@ public class QueryService {
 	@Autowired
 	private SalesforceConfig salesforceConfig;
 	
+	@Autowired
+	private RestTemplate template;
+	
 	public void getQueryResult(String query) {
 		String url = salesforceConfig.getQueryUrl();
-		RestTemplate template = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.set("Authorization", "Bearer "+tokenService.getBarerToken());

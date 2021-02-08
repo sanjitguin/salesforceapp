@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("query")
 public class QueryController {
 
-	@GetMapping(value="/query")
+	@GetMapping
 	public void getQueryResult(@RequestParam("q") String query) {
 		
-		
+		System.out.println(query);
 	}
 }

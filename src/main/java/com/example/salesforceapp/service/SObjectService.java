@@ -26,9 +26,11 @@ public class SObjectService {
 	@Autowired
 	private SalesforceConfig salesForceConf;
 	
+	@Autowired
+	RestTemplate template;
+	
 	public List<SObject> findAllSObjects() {
 		String url = salesForceConf.sobjectServiceUrl(null);
-		RestTemplate template = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.set("Authorization", "Bearer "+tokenService.getBarerToken());
@@ -41,7 +43,6 @@ public class SObjectService {
 	public SObject findSObject(String name) {
 		String url = salesForceConf.sobjectServiceUrl(name);
 		System.out.println("Url :" +url);
-		RestTemplate template = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.set("Authorization", "Bearer "+tokenService.getBarerToken());
@@ -54,7 +55,6 @@ public class SObjectService {
 	public SObjectDescribeSalesforceData findSObjectDescribe(String sobjectname) {
 		String url = salesForceConf.sobjectDescribeServiceUrl(sobjectname);
 		System.out.println("Url :" +url);
-		RestTemplate template = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.set("Authorization", "Bearer "+tokenService.getBarerToken());
