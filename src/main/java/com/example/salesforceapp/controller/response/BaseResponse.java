@@ -1,7 +1,5 @@
 package com.example.salesforceapp.controller.response;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 
 public abstract class BaseResponse<T> {
@@ -36,5 +34,5 @@ public abstract class BaseResponse<T> {
 	public void setStatus(HttpStatus status) {
 		this.status = status;
 	}
-	public abstract List<T> getData();
+	public abstract T getData();
 }

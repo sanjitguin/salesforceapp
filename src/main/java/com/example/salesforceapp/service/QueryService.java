@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.salesforceapp.config.SalesforceConfig;
-import com.example.salesforceapp.model.SObjectDescribeSalesforceData;
+import com.example.salesforceapp.model.QuerySalesforceData;
 
 @Service
 public class QueryService {
@@ -24,13 +24,14 @@ public class QueryService {
 	@Autowired
 	private RestTemplate template;
 	
-	public void getQueryResult(String query) {
-		String url = salesforceConfig.getQueryUrl();
+	public QuerySalesforceData getQueryResult(String query) {
+		String url = salesforceConfig.queryServiceUrl(query);
+		System.out.println("URL "+url);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.set("Authorization", "Bearer "+tokenService.getBarerToken());
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-        ResponseEntity<SObjectDescribeSalesforceData> response = template.exchange(url, HttpMethod.GET, entity, SObjectDescribeSalesforceData.class);
-        //return response.getBody();
+        ResponseEntity<QuerySalesforceData> response = template.exchange(url, HttpMethod.GET, entity, QuerySalesforceData.class);
+        return response.getBody();
 	}
 }

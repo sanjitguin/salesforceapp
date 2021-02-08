@@ -2,8 +2,6 @@ package com.example.salesforceapp.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpEntity;
@@ -52,9 +50,9 @@ public class SObjectServiceTest {
 			tokenService.getBarerToken(); result="most_secret_token";
 			template.exchange(anyString, HttpMethod.GET, (HttpEntity)any, SObjectsSalesforceData.class); result=fakeResp;
 		}};
-		List<SObject> sobjects = service.findAllSObjects();
-		assertEquals(sobjects.size(), data.getSobjects().size());
-		assertEquals(sobjects, data.getSobjects());
+		SObjectsSalesforceData sobjects = service.findAllSObjects();
+		assertEquals(sobjects.getSobjects().size(), data.getSobjects().size());
+		assertEquals(sobjects, data);
 	}
 	
 	
@@ -77,8 +75,8 @@ public class SObjectServiceTest {
 			tokenService.getBarerToken(); result="most_secret_token";
 			template.exchange(anyString, HttpMethod.GET, (HttpEntity)any, SObjectSalesforceData.class); result=fakeResp;
 		}};
-		SObject sobjects = service.findSObject(sobjectName);
-		assertEquals(sobjects, sobjectData);
+		SObjectSalesforceData sobjects = service.findSObject(sobjectName);
+		assertEquals(sobjects, data);
 	}
 	
 	@Test
@@ -118,7 +116,7 @@ public class SObjectServiceTest {
 			tokenService.getBarerToken(); result="most_secret_token";
 			template.exchange(anyString, HttpMethod.GET, (HttpEntity)any, SObjectsSalesforceData.class); result=new RuntimeException();
 		}};
-		List<SObject> sobjects = service.findAllSObjects();
+		SObjectsSalesforceData sobjects = service.findAllSObjects();
 	}
 	
 	
