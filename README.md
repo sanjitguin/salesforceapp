@@ -8,12 +8,12 @@ This is a simple springboot application, which calls salesforce api to get data 
 4. JMockit
 
 ###### unit testing
-   Run the below command to execute the test cases
+   Run the below command to execute the test cases <br/>
    ** cmd> ** mvn verify 
 
 ###### Build
    Build jar file using maven cmd <br/>
-   ex, mvn clean build
+   ex, ** cmd> ** mvn clean build
    
 ###### Run
    run jar using java cmd.  
